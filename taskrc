@@ -2,5 +2,25 @@
 # vim: filetype=sh :
 #
 
+function info_urls {
+    #Help tutorial used for this explore:
+    echo "Tutorial: https://nrempel.com/blog/how-publish-python-package-pypi-comprehensive-guide/"
+    echo "TestPyPI Guidance: https://packaging.python.org/guides/using-testpypi/"
+}
+
+function build_dist {
+    #Help rebuild the dist/ for upload
+    python3.8 setup.py sdist bdist_wheel
+}
+
+function upload_test_pypi_org {
+    #Help upload to test.pypi.org (disable vpn and ~/.config/pip/pip.conf first)
+    twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
+}
+
+function install_test_pypi_org {
+    #Help Install from test.pypi.org (disable vpn and ~/.config/pip/pip.conf first)
+    python3.8 -m pip install --trusted-host test.pypi.org --index-url https://test.pypi.org/simple --trusted-host pypi.org --extra-index-url https://pypi.org/simple package-weaselfish
+}
 
 

@@ -3,7 +3,7 @@
 import runpy
 from setuptools import setup, find_packages
 
-PACKAGE_NAME = "package-boilerplate"
+PACKAGE_NAME = "package-weaselfish"
 version_meta = runpy.run_path("./version.py")
 VERSION = version_meta["__version__"]
 
